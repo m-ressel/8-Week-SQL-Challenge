@@ -16,37 +16,37 @@ My solutions
 
 ### Case Study #3 - Foodie-Fi
 
-[Description]()
+[Description](https://8weeksqlchallenge.com/case-study-3/)
 
 My solutions
 
 ### Case Study #4 - Data Bank
 
-[Description]()
+[Description](https://8weeksqlchallenge.com/case-study-4/)
 
 My solutions
 
 ### Case Study #5 - Data Mart
 
-[Description]()
+[Description](https://8weeksqlchallenge.com/case-study-5/)
 
 My solutions
 
 ### Case Study #6 - Clique Bait
 
-[Description]()
+[Description](https://8weeksqlchallenge.com/case-study-6/)
 
 My solutions
 
 ### Case Study #7 - Balanced Tree Clothing Co.
 
-[Description]()
+[Description](https://8weeksqlchallenge.com/case-study-7/)
 
 My solutions
 
 ### Case Study #8 - Fresh Segments
 
-[Description]()
+[Description](https://8weeksqlchallenge.com/case-study-8/)
 
 My solutions
 
