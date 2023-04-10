@@ -22,3 +22,8 @@ Danny has shared with you 3 key datasets for this case study:
 * ```menu```
 * ```member```
 
+### Entity Relationship Diagram
+
+![image](https://user-images.githubusercontent.com/128125991/230888315-5a7eb639-8d51-4542-8175-cba799c4a5e8.png)
+
+
