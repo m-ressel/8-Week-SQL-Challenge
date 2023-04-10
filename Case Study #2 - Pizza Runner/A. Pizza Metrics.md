@@ -1,4 +1,4 @@
-## Cleaning data**
+## Cleaning data
 
 ```
     DROP TABLE IF EXISTS customer_orders_clean;
