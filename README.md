@@ -4,9 +4,7 @@ My solutions to all Danny's cases.
 
 ### Case Study #1 - Danny's Diner
 
-[Description](https://8weeksqlchallenge.com/case-study-1/)
-
-My solutions
+[Description](https://8weeksqlchallenge.com/case-study-1/) | [My solutions](https://github.com/m-ressel/8-week-sql-challenge/tree/main/Case%20Study%20%231%20-%20Danny's%20Diner)
 
 ### Case Study #2 - Pizza Runner
 
