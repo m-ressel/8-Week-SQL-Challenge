@@ -1,4 +1,5 @@
 ### My solutions
+---
 
 **1. What is the total amount each customer spent at the restaurant?**
 
@@ -335,4 +336,3 @@
 | C           | 2021-01-01T00:00:00.000Z | ramen        | 12    | N      |         |
 | C           | 2021-01-07T00:00:00.000Z | ramen        | 12    | N      |         |
 
----
