@@ -1,6 +1,4 @@
-### My solutions
-
-**Cleaning data**
+### Cleaning data**
 
 ```
     DROP TABLE IF EXISTS customer_orders_clean;
@@ -72,8 +70,9 @@
 ```
 
 ---
+### My solutions - [View on DB Fiddle](https://www.db-fiddle.com/f/7VcQKQwsS3CTkGRFG7vu98/65)
 
-**Query #1**
+**1. How many pizzas were ordered?**
 
     SELECT COUNT(*) as total_count
     FROM customer_orders;
@@ -83,7 +82,7 @@
 | 14          |
 
 ---
-**Query #2**
+**2. How many unique customer orders were made?**
 
     SELECT 
     COUNT(DISTINCT order_id) AS orders_count 
@@ -94,7 +93,7 @@
 | 10           |
 
 ---
-**Query #3**
+**3. How many successful orders were delivered by each runner?**
 
     SELECT 
     runner_id, 
@@ -110,7 +109,7 @@
 | 3         | 1                 |
 
 ---
-**Query #4**
+**4. How many of each type of pizza was delivered?**
 
     SELECT 
     pn.pizza_name, 
@@ -127,7 +126,7 @@
 | Vegetarian | 3     |
 
 ---
-**Query #5**
+**5. How many Vegetarian and Meatlovers were ordered by each customer?**
 
     SELECT 
     co.customer_id,
@@ -150,7 +149,7 @@
 | 105         | Vegetarian | 1     |
 
 ---
-**Query #6**
+**6. What was the maximum number of pizzas delivered in a single order?**
 
     SELECT MAX(count) AS maximum_number_of_delivered_pizzas
     FROM(
@@ -167,7 +166,7 @@
 | 3                                  |
 
 ---
-**Query #7**
+**7. For each customer, how many delivered pizzas had at least 1 change and how many had no changes?**
 
     SELECT 
     c.customer_id,
@@ -193,7 +192,7 @@
 | 103         | 0          | 3                 |
 
 ---
-**Query #8**
+**8. How many pizzas were delivered that had both exclusions and extras?**
 
     SELECT 
     SUM(CASE 
@@ -209,7 +208,7 @@
 | 1     |
 
 ---
-**Query #9**
+**9. What was the total volume of pizzas ordered for each hour of the day?**
 
     SELECT 
     EXTRACT(HOUR from order_time) AS hours, 
@@ -228,7 +227,7 @@
 | 23    | 3           |
 
 ---
-**Query #10**
+**10. What was the volume of orders for each day of the week?**
 
     SELECT 
     TO_CHAR(order_time, 'Day') AS weekday,
@@ -244,5 +243,3 @@
 | Wednesday | 5           |
 
 ---
-
-[View on DB Fiddle](https://www.db-fiddle.com/f/7VcQKQwsS3CTkGRFG7vu98/65)
