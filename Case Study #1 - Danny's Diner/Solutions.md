@@ -20,14 +20,16 @@
 | C           | 36                 |
 
 ---
-**Query #2**
+**2. How many days has each customer visited the restaurant?**
 
+```
     SELECT 
     customer_id, 
     COUNT(DISTINCT order_date ) AS "days_count"
     FROM sales
     GROUP BY customer_id
     ORDER BY customer_id;
+```
 
 | customer_id | days_count |
 | ----------- | ---------- |
@@ -36,8 +38,9 @@
 | C           | 2          |
 
 ---
-**Query #3**
+**3. What was the first item from the menu purchased by each customer?**
 
+```
     WITH ranked_sales AS (
       SELECT *,
       DENSE_RANK() OVER (PARTITION BY customer_id ORDER BY order_date) AS rank
@@ -51,6 +54,7 @@
     WHERE rs.rank = 1
     GROUP BY rs.customer_id, first_ordered_product
     ORDER BY rs.customer_id;
+```
 
 | customer_id | first_ordered_product |
 | ----------- | --------------------- |
@@ -60,8 +64,9 @@
 | C           | ramen                 |
 
 ---
-**Query #4**
+**4. What is the most purchased item on the menu and how many times was it purchased by all customers?**
 
+```
     SELECT 
     m.product_name, 
     COUNT(s.product_id) AS purchased_count
@@ -70,14 +75,16 @@
     GROUP BY m.product_name
     ORDER BY COUNT(s.order_date) DESC
     LIMIT 1;
+```
 
 | product_name | purchased_count |
 | ------------ | --------------- |
 | ramen        | 8               |
 
 ---
-**Query #5**
+**5. Which item was the most popular for each customer?**
 
+```
     WITH ranked_sales AS(
       SELECT
       s.customer_id, 
@@ -95,6 +102,7 @@
     FROM ranked_sales
     WHERE order_rank=1
     ORDER BY customer_id;
+```
 
 | customer_id | product_name | bought_count |
 | ----------- | ------------ | ------------ |
@@ -105,8 +113,9 @@
 | C           | ramen        | 3            |
 
 ---
-**Query #6**
+**6. Which item was purchased first by the customer after they became a member?**
 
+```
     WITH ranked_members_order_after AS(
       SELECT
       members.join_date, 
@@ -124,6 +133,7 @@
     product_name
     FROM ranked_members_order_after
     WHERE order_rank =1;
+```
 
 | customer_id | product_name |
 | ----------- | ------------ |
@@ -131,8 +141,9 @@
 | B           | sushi        |
 
 ---
-**Query #7**
+**7. Which item was purchased just before the customer became a member?**
 
+```
     WITH ranked_members_order_before AS(
       SELECT
       members.join_date, 
@@ -151,6 +162,7 @@
     FROM ranked_members_order_before
     WHERE ranked_order = 1
     ORDER BY customer_id;
+```
 
 | customer_id | product_name |
 | ----------- | ------------ |
@@ -159,8 +171,9 @@
 | B           | sushi        |
 
 ---
-**Query #8**
+**8. What is the total items and amount spent for each member before they became a member?**
 
+```
     SELECT
     members.customer_id,
     COUNT(*) AS items_count, 
@@ -171,6 +184,7 @@
     WHERE s.order_date < members.join_date
     GROUP BY members.customer_id
     ORDER BY members.customer_id;
+```
 
 | customer_id | items_count | amount_spent |
 | ----------- | ----------- | ------------ |
@@ -178,8 +192,9 @@
 | B           | 3           | 40           |
 
 ---
-**Query #9**
+**9. If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?**
 
+```
     WITH menu_points AS (
       SELECT *, 
       CASE 
@@ -195,6 +210,7 @@
     JOIN menu_points AS mp ON s.product_id = mp.product_id
     GROUP BY customer_id
     ORDER BY customer_id;
+```
 
 | customer_id | points |
 | ----------- | ------ |
@@ -203,8 +219,9 @@
 | C           | 360    |
 
 ---
-**Query #10**
+**10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?**
 
+```
     WITH menu_points AS (
       SELECT *, 
       CASE 
@@ -235,6 +252,7 @@
     FROM new_menu
     GROUP BY customer_id
     ORDER BY customer_id;
+```
 
 | customer_id | sum_of_points |
 | ----------- | ------------- |
@@ -242,8 +260,9 @@
 | B           | 820           |
 
 ---
-**Query #11**
+**Bonus Question - Join All The Things**
 
+```
     SELECT sales.customer_id, sales.order_date, menu.product_name, menu.price, CASE
       WHEN sales.order_date >= members.join_date THEN 'Y'
       WHEN members.join_date = NULL THEN 'N'
@@ -251,7 +270,7 @@
     END AS member FROM sales 
     LEFT JOIN members ON sales.customer_id = members.customer_id
     JOIN menu ON sales.product_id = menu.product_id;
-
+```
 | customer_id | order_date               | product_name | price | member |
 | ----------- | ------------------------ | ------------ | ----- | ------ |
 | A           | 2021-01-07T00:00:00.000Z | curry        | 15    | Y      |
@@ -271,8 +290,9 @@
 | C           | 2021-01-07T00:00:00.000Z | ramen        | 12    | N      |
 
 ---
-**Query #12**
+**Bonus Question - Rank All The Things**
 
+```
     WITH bonus_task AS (
       SELECT 
       s.customer_id, 
@@ -295,6 +315,7 @@
     END AS ranking
     FROM bonus_task
     ORDER BY customer_id, order_date;
+```
 
 | customer_id | order_date               | product_name | price | member | ranking |
 | ----------- | ------------------------ | ------------ | ----- | ------ | ------- |
@@ -315,5 +336,3 @@
 | C           | 2021-01-07T00:00:00.000Z | ramen        | 12    | N      |         |
 
 ---
-
-[View on DB Fiddle](https://www.db-fiddle.com/f/2rM8RAnq7h5LLDTzZiRWcd/138)
