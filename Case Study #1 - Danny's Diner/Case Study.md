@@ -2,13 +2,15 @@
 
 1. What is the total amount each customer spent at the restaurant?
 
+```
     SELECT 
     dannys_diner.sales.customer_id, 
     SUM(menu.price) AS total_amount_spent
     FROM dannys_diner.sales
     JOIN dannys_diner.menu ON dannys_diner.sales.product_id = dannys_diner.menu.product_id
-    GROUP BY dannys_diner.sales.customer_id;
-
+    GROUP BY dannys_diner.sales.customer_id
+    ORDER BY dannys_diner.sales.customer_id;
+```
 
 | customer_id | total_amount_spent |
 | ----------- | ------------------ |
