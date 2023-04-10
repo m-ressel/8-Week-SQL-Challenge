@@ -1,4 +1,4 @@
-### My solutions
+### My solutions - [view on DB Fiddle](https://www.db-fiddle.com/f/2rM8RAnq7h5LLDTzZiRWcd/4189)
 ---
 
 **1. What is the total amount each customer spent at the restaurant?**
@@ -337,4 +337,3 @@
 | C           | 2021-01-07T00:00:00.000Z | ramen        | 12    | N      |         |
    
 ---
-[View on DB Fiddle](https://www.db-fiddle.com/f/2rM8RAnq7h5LLDTzZiRWcd/4189)
