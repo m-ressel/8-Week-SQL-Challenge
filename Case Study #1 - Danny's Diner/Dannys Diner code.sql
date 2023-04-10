@@ -226,7 +226,7 @@ FROM new_menu
 GROUP BY customer_id
 ORDER BY customer_id;
 
--- Rank All The Things
+-- Join All The Things
 
 SELECT 
 s.customer_id, 
@@ -242,7 +242,7 @@ FROM sales AS s
 LEFT JOIN members ON s.customer_id = members.customer_id
 JOIN menu ON s.product_id = menu.product_id;
 
--- Join All The Things
+-- Rank All The Things
 
 WITH bonus_task AS (
   SELECT 
