@@ -1,4 +1,4 @@
-### My solutions - [view on DB Fiddle](https://www.db-fiddle.com/f/2rM8RAnq7h5LLDTzZiRWcd/4189)
+### Case Study Questions
 ---
 
 **1. What is the total amount each customer spent at the restaurant?**
@@ -26,7 +26,7 @@
 ```
     SELECT 
     customer_id, 
-    COUNT(DISTINCT order_date ) AS "days_count"
+    COUNT(DISTINCT order_date) AS "days_count"
     FROM sales
     GROUP BY customer_id
     ORDER BY customer_id;
@@ -113,8 +113,12 @@
 | B           | sushi        | 2            |
 | C           | ramen        | 3            |
 
+Since Client B ordered the same amount of 3 items all of them are the most popular for B.
+
 ---
 **6. Which item was purchased first by the customer after they became a member?**
+
+I rank orders made after join_date basing them on the customer_id and ordering them by order_date. Then I choose the earliest one so the ones that have rank equal to 1.
 
 ```
     WITH ranked_members_order_after AS(
@@ -144,6 +148,7 @@
 ---
 **7. Which item was purchased just before the customer became a member?**
 
+I do similar function as in the last question but I choose rows with order_date before join_date, ordering them by descending order_date and then I choose the ones that have rank equal to 1.
 ```
     WITH ranked_members_order_before AS(
       SELECT
@@ -170,6 +175,8 @@
 | A           | sushi        |
 | A           | curry        |
 | B           | sushi        |
+
+Customer A ordered 2 products on their last day before becoming a member so the table chooses both of them.
 
 ---
 **8. What is the total items and amount spent for each member before they became a member?**
@@ -218,6 +225,9 @@
 | A           | 860    |
 | B           | 940    |
 | C           | 360    |
+
+
+Customer C has the least amount of points which is connected to the fact that they spent half as much money as the other customers.
 
 ---
 **10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?**
