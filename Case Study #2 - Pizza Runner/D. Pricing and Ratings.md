@@ -121,7 +121,7 @@
 | 104         | 10       | 1         | 2      | 2020-01-11T18:34:49.000Z | 2020-01-11T18:50:20.000Z | 15                | 10       | 60.00     | 2            |
 
 ---
-**Query #7**
+**5. If a Meat Lovers pizza was $12 and Vegetarian $10 fixed prices with no cost for extras and each runner is paid $0.30 per kilometre traveled - how much money does Pizza Runner have left over after these deliveries?**
 
 ```
     SELECT 
@@ -140,6 +140,3 @@
 | ------------- |
 | 73.38         |
 
----
-
-[View on DB Fiddle](https://www.db-fiddle.com/f/7VcQKQwsS3CTkGRFG7vu98/65)
