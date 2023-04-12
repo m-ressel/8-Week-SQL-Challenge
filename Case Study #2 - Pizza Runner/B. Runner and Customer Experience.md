@@ -1,4 +1,4 @@
-# Runner and Customer Experience.md
+# Runner and Customer Experience
 ---
 **1. How many runners signed up for each 1 week period?**
 
@@ -163,5 +163,3 @@
 | 3         | 50                             |
 
 ---
-
-[View on DB Fiddle](https://www.db-fiddle.com/f/7VcQKQwsS3CTkGRFG7vu98/65)
