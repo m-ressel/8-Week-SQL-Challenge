@@ -19,14 +19,16 @@
 | 138        |
 
 ---
-**Query #2**
+**2. What if there was an additional $1 charge for any pizza extras? Add cheese is $1 extra.**
 
 ```
     SELECT SUM(CASE 
     WHEN p.pizza_name = 'Meatlovers' THEN 12
     ELSE 10
     END + CASE 
+    WHEN LENGTH(c.extras) = 4 AND c.extras Ilike '%4%' THEN 3
     WHEN LENGTH(c.extras) = 4 THEN 2
+    WHEN LENGTH(c.extras) = 1 AND c.extras Ilike '%4%' THEN 2
     WHEN LENGTH(c.extras) = 1 THEN 1
     ELSE 0
     END) as cost_with_extras
@@ -38,7 +40,7 @@
 
 | cost_with_extras |
 | ---------------- |
-| 142              |
+| 143              |
 
 ---
 **Query #3**
