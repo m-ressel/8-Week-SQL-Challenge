@@ -8,15 +8,13 @@ My solutions to all Danny's cases.
 
 ### Case Study #2 - Pizza Runner
 
-[Description](https://8weeksqlchallenge.com/case-study-2/)
+[Description](https://8weeksqlchallenge.com/case-study-2/) | [My solutions](https://github.com/m-ressel/8-week-sql-challenge/tree/main/Case%20Study%20%232%20-%20Pizza%20Runner)
 
-My solutions
 
 ### Case Study #3 - Foodie-Fi
 
-[Description](https://8weeksqlchallenge.com/case-study-3/)
+[Description](https://8weeksqlchallenge.com/case-study-3/) | [My solutions](https://github.com/m-ressel/8-week-sql-challenge/tree/main/Case%20Study%20%233%20-%20Foodie-Fi)
 
-My solutions
 
 ### Case Study #4 - Data Bank
 
