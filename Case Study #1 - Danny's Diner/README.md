@@ -18,7 +18,7 @@ Danny has provided you with a sample of his overall customer data due to privacy
 
 Danny has shared with you 3 key datasets for this case study:
 
-**Table 1: sales ** captures all customer_id level purchases with an corresponding order_date and product_id information for when and what menu items were ordered.
+**Table 1: sales** captures all customer_id level purchases with an corresponding order_date and product_id information for when and what menu items were ordered.
 
 **Table 2: menu** maps the product_id to the actual product_name and price of each menu item.
 
