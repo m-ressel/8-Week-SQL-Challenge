@@ -40,7 +40,7 @@ This case study is all about calculating metrics, growth and helping the busines
   
 </details>
 
-<details><summary>A. Data Analysis Questions</summary>
+<details><summary>B. Customer Transactions</summary>
 
   1. What is the unique count and total amount for each transaction type?
   2. What is the average total historical deposit counts and amounts for all customers?
