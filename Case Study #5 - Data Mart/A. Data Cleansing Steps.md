@@ -1,4 +1,4 @@
-# 1. Data Cleansing Steps
+# A. Data Cleansing Steps
   
 ** In a single query, perform the following operations and generate a new table in the data_mart schema named clean_weekly_sales:
   
