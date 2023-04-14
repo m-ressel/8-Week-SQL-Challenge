@@ -64,11 +64,6 @@ Danny has prepared an entity relationship diagram of his database design but req
   
 </details>
 
-<details>
-<summary>Example</summary>
-<ul><li>This dropdown contains</li>
-<li>a list!</li></ul>
-</details>
 
 <details><summary>C. Ingredient Optimisation</summary>
 
