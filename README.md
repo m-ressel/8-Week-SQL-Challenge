@@ -18,15 +18,12 @@ My solutions to all Danny's cases.
 
 ### Case Study #4 - Data Bank
 
-[Description](https://8weeksqlchallenge.com/case-study-4/)
-
-My solutions
+[Description](https://8weeksqlchallenge.com/case-study-4/) | [My solutions](https://github.com/m-ressel/8-week-sql-challenge/tree/main/Case%20Study%20%234%20-%20Data%20Bank)
 
 ### Case Study #5 - Data Mart
 
-[Description](https://8weeksqlchallenge.com/case-study-5/)
+[Description](https://8weeksqlchallenge.com/case-study-5/)| [My solutions](https://github.com/m-ressel/8-week-sql-challenge/tree/main/Case%20Study%20%235%20-%20Data%20Mart)
 
-My solutions
 
 ### Case Study #6 - Clique Bait
 
