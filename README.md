@@ -1,6 +1,6 @@
 # 8 Week SQL Challenge by Danny Ma
 
-My solutions to all Danny's cases.
+My solutions of all Danny's case studies.
 
 ### Case Study #1 - Danny's Diner
 
