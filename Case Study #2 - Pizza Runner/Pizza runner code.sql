@@ -328,21 +328,12 @@ WHERE ro.cancellation = ''
 GROUP BY co.customer_id;
 
 
-WITH orders_time AS(
-  SELECT 
-  co.order_id, 
-  order_time, 
-  pickup_time, 
-  pickup_time - order_time AS diff
-  FROM customer_orders AS co
-  JOIN runner_orders AS ro
-  ON co.order_id = ro.order_id
-  WHERE cancellation = ''
-  GROUP BY co.order_id, order_time, pickup_time)
-
-SELECT 
-TO_CHAR(MAX(diff) - MIN(diff), 'MI') AS max_min_diff
-FROM orders_time;
+SELECT
+MIN(duration) AS min_delivery_time_in_minutes,
+MAX(duration) AS max_delivery_time_in_minutes
+FROM runner_orders
+WHERE cancellation = '';
+    
 
 SELECT 
 runner_id,
