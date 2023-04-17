@@ -1,6 +1,8 @@
 # D. Pricing and Ratings
 ---
 
+In all questions below I assumed that if an order wasn't delivered, Pizza Runner earned no money of it.
+
 **1. If a Meat Lovers pizza costs $12 and Vegetarian costs $10 and there were no charges for changes - how much money has Pizza Runner made so far if there are no delivery fees?**
 
 ```
@@ -18,8 +20,15 @@
 | ---------- |
 | 138        |
 
+
+If we don't take any delivery fees into account, Pizza Runner made $138 of all delivered orders.
+
 ---
 **2. What if there was an additional $1 charge for any pizza extras? Add cheese is $1 extra.**
+
+The way this question is written is ambiguous - I assumed that every extra is $1 and cheese is $2 extra. 
+
+To check how much are the extras, for each row I check how long is the string in column extras and if it contains topping_id equal to 4 (cheese).
 
 ```
     SELECT SUM(CASE 
@@ -42,9 +51,12 @@
 | ---------------- |
 | 143              |
 
+I got $143, which is $5 more than the value from previous question.
 
 ---
 **3. The Pizza Runner team now wants to add an additional ratings system that allows customers to rate their runner, how would you design an additional table for this new dataset - generate a schema for this new table and insert your own data for ratings for each successful customer order between 1 to 5.**
+
+In runners_rating table I have rating column that contains only numbers in range from 1 to 5 - this way customers will only be able to add rating in expected values.
 
 ```
     CREATE TABLE runners_rating(
@@ -140,3 +152,4 @@
 | ------------- |
 | 73.38         |
 
+After deducting drivers' pay Pizza Runner made $73.38.
