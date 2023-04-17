@@ -27,19 +27,16 @@ My solutions of all Danny's case studies.
 
 ### Case Study #6 - Clique Bait
 
-[Description](https://8weeksqlchallenge.com/case-study-6/)
+[Description](https://8weeksqlchallenge.com/case-study-6/)| [My solutions](https://github.com/m-ressel/8-week-sql-challenge/tree/main/Case%20Study%20%236%20-%20Clique%20Bait)
 
-My solutions
 
 ### Case Study #7 - Balanced Tree Clothing Co.
 
-[Description](https://8weeksqlchallenge.com/case-study-7/)
+[Description](https://8weeksqlchallenge.com/case-study-7/)| [My solutions](https://github.com/m-ressel/8-week-sql-challenge/tree/main/Case%20Study%20%237%20-%20Balanced%20Tree%20Clothing%20Co.)
 
-My solutions
 
 ### Case Study #8 - Fresh Segments
 
-[Description](https://8weeksqlchallenge.com/case-study-8/)
+[Description](https://8weeksqlchallenge.com/case-study-8/)| [My solutions](https://github.com/m-ressel/8-week-sql-challenge/tree/main/Case%20Study%20%238%20-%20Fresh%20Segments)
 
-My solutions
 
