@@ -17,6 +17,8 @@
 | 02    | 1     |
 | 03    | 1     |
 
+In the first year of the year 2 runners signed up, additionally another 1 per week signed up in the next 2 weeks.
+
 ---
 **2. What was the average time in minutes it took for each runner to arrive at the Pizza Runner HQ to pickup the order?**
 
@@ -75,6 +77,8 @@
 | 2     | 18       |
 | 3     | 29       |
 
+As we could expect, the more pizzas in the order, the more time on average it takes to prepare it.
+
 ---
 **4. What was the average distance travelled for each customer?**
 
@@ -100,25 +104,17 @@
 **5. What was the difference between the longest and shortest delivery times for all orders?**
 
 ```
-    WITH orders_time AS(
-      SELECT 
-      co.order_id, 
-      order_time, 
-      pickup_time, 
-      pickup_time - order_time AS diff
-      FROM customer_orders AS co
-      JOIN runner_orders AS ro
-      ON co.order_id = ro.order_id
-      WHERE cancellation = ''
-      GROUP BY co.order_id, order_time, pickup_time)
-    
-    SELECT 
-    TO_CHAR(MAX(diff) - MIN(diff), 'MI') AS max_min_diff
-    FROM orders_time;
+    SELECT
+    MIN(duration) AS min_delivery_time_in_minutes,
+    MAX(duration) AS max_delivery_time_in_minutes
+    FROM runner_orders
+    WHERE cancellation = '';
 ```
-| max_min_diff |
-| ------------ |
-| 19           |
+| min_delivery_time | max_delivery_time |
+| ----------------- |-------------------|
+| 10                | 40                |
+
+Difference between the longest and shortest delivery times for all orders is 30 minutes.
 
 ---
 **6. What was the average speed for each runner for each delivery and do you notice any trend for these values?**
@@ -141,6 +137,8 @@
 | 2         | 7        | 60.00 |
 | 2         | 8        | 93.60 |
 | 3         | 5        | 40.00 |
+
+The average speed for order 8 is suspiciously high. There's a possibility that the actual distance has been miswritten.  
 
 ---
 **7. What is the successful delivery percentage for each runner?**
