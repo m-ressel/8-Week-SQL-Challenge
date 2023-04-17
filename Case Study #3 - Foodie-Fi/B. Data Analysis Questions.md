@@ -1,27 +1,17 @@
-# A. Data Analysis Questions
+# B. Data Analysis Questions
 
 **1. How many customers has Foodie-Fi ever had?**
 
 ```
-    SELECT COUNT(*) as total_count
-    FROM customer_orders;
-```
-
-| total_count |
-| ----------- |
-| 14          |
-
----
-
-**1. How many customers has Foodie-Fi ever had?**
-
-```
-    SELECT COUNT(DISTINCT customer_id) AS customers_count FROM subscriptions;
+SELECT COUNT(DISTINCT customer_id) AS customers_count 
+FROM subscriptions;
 ```
 
 | customers_count |
 | --------------- |
 | 1000            |
+
+Foodie-Fi had 1000 unique customers.
 
 ---
 **2. What is the monthly distribution of ```trial``` plan ```start_date``` values for our dataset - use the start of the month as the group by value**
@@ -71,6 +61,8 @@
 | 3       | 63    |
 | 4       | 71    |
 
+The most common plan_id after 2020 is 4.
+
 ---
 
 **4. What is the customer count and percentage of customers who have churned rounded to 1 decimal place?**
@@ -88,9 +80,13 @@
 | ----- | ---------- |
 | 307   | 30.7       |
 
+30.7% of all customer decided to churn.
+
 ---
 
 **5. How many customers have churned straight after their initial free trial - what percentage is this rounded to the nearest whole number?**
+
+To check what each customer did after initial trial, I use built-in function RANK() OVER. This way I get order of each customer's plan. To extract those who churned after trial, I count how many customers have plan_id = 4 with rank_order = 2.
 
 ```
     WITH ranked_subscriptions AS (
@@ -111,6 +107,8 @@
 | count | percentage |
 | ----- | ---------- |
 | 92    | 9.2        |
+
+9.2% of customers decided to churn right after the free trial.
 
 ---
 
@@ -142,6 +140,9 @@
 | 2       | 325   | 32.5       |
 | 3       | 37    | 3.7        |
 | 4       | 92    | 9.2        |
+
+
+Majority of customers switched to plan_id 1 after the initial trial.
 
 ---
 
@@ -190,6 +191,8 @@
 | ------------ |
 | 195          |
 
+195 customers upgraded to annual plan in 2020.
+
 ---
 
 **9. How many days on average does it take for a customer to an annual plan from the day they join Foodie-Fi?**
@@ -220,9 +223,13 @@
 | ----- |
 | 105   |
 
+On average it takes 105 days for a customer to switch to an annual plan.
+
 ---
 
 **10. Can you further breakdown this average value into 30 day periods (i.e. 0-30 days, 31-60 days etc)**
+
+To split average value into shorter periods, I used method described here - https://dba.stackexchange.com/a/269076
 
 ```
     WITH annual AS(
@@ -296,3 +303,6 @@
 | count |
 | ----- |
 | 0     |
+
+
+Not a single customer downgraded from a pro monthly to a basic monthly plan in 2020.
