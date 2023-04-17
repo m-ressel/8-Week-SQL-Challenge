@@ -201,3 +201,54 @@ Answer:
 There are 188 records where month_year value is before created_at value. 
 I think these values are valid since their mont is the same and the value in the month_year column has the first day of the month but we do not know the real day of the month as we created this column by combining month and year only.
 
+---
+
+# B. Interest Analysis
+
+**1.Which interests have been present in all month_year dates in our dataset?**
+
+Combination of month_year and interest_id is unique to each month so I'll start with calculating how many unique values of month_year are in table interest_metrics.
+
+```
+SELECT 
+COUNT(DISTINCT month_year) 
+FROM interest_metrics;
+```
+
+
+Let's check which interest_id has a count of 14.
+
+```
+SELECT
+interest_name,
+interest_id,
+COUNT(*) as count
+FROM interest_metrics AS i
+LEFT JOIN interest_map AS im ON im.id=i.interest_id::int
+WHERE interest_id IS NOT NULL
+GROUP BY interest_id, interest_name
+HAVING COUNT(*) = 14
+LIMIT 10
+```
+
+
+```
+WITH count_all_month_year AS (
+  SELECT
+  interest_name,
+  interest_id,
+  COUNT(*) as count
+  FROM interest_metrics AS i
+  LEFT JOIN interest_map AS im ON im.id=i.interest_id::int
+  WHERE interest_id IS NOT NULL
+  GROUP BY interest_id, interest_name
+  HAVING COUNT(*) = 14)
+  
+SELECT COUNT(interest_id) AS id_count
+FROM count_all_month_year
+;
+```
+
+There are 480 interests that are present in all month_year dates in our dataset.
+
+---
